@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "75732931869",
+    "project_id": "e-hospital-d5d70",
+    "storage_bucket": "e-hospital-d5d70.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:75732931869:android:0783fc3b1b89057903bdf4",
+        "android_client_info": {
+          "package_name": "com.example.education_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "75732931869-ftb5g56ts749617rgum4l2c1hfbnbfga.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCvvUfcGJ2WL1TIFDuZ-n0L4o2piCQNT1E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "75732931869-ftb5g56ts749617rgum4l2c1hfbnbfga.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

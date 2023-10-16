@@ -13,8 +13,11 @@ class andr extends StatefulWidget {
 }
 
 class _andrState extends State<andr> {
+  get questionController => null;
+
   @override
   Widget build(BuildContext context) {
+    var recentlyAskedQuestions;
     return Scaffold(
       appBar: AppBar(
         title: Text("Android Development",style: TextStyle(color: Colors.black),),
@@ -277,6 +280,7 @@ class _andrState extends State<andr> {
                     " the Stateful widget allows the interaction between user and application.",style: TextStyle(fontSize: 20),),
 
               ),
+
             ],
           ),
         ),

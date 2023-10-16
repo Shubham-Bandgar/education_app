@@ -2,14 +2,14 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
-class javayt extends StatefulWidget {
-  const javayt({Key? key}) : super(key: key);
+class datayt extends StatefulWidget {
+  const datayt({Key? key}) : super(key: key);
 
   @override
-  State<javayt> createState() => _javaytState();
+  State<datayt> createState() => _dataytState();
 }
 
-class _javaytState extends State<javayt> {
+class _dataytState extends State<datayt> {
   late YoutubePlayerController _controller;
   late YoutubeMetaData _videoMetaData;
   double _volume = 100;
@@ -18,14 +18,11 @@ class _javaytState extends State<javayt> {
 
   final List<String> _ids = [
     //'cVAGLDuc2xE',
-   //'EoxU857gjk8',
-    //'UmnCZ7-9yDY',
-    //'bQssdSrSGNE',
-    'yRpLlJmRo2w'
-   //'hBh_CC5y8-s'
+    'EoxU857gjk8',
+    'UmnCZ7-9yDY',
+    'bQssdSrSGNE',
+
   ];
-  TextEditingController questionController = TextEditingController();
-  List<String> recentlyAskedQuestions = [];
   @override
   void initState() {
     // TODO: implement initState
@@ -113,14 +110,9 @@ class _javaytState extends State<javayt> {
                             ],
                           ))
                     ],
-
                   ),
-
                 );
-              },),
-
-
-
+              }),
         ));
   }
 }

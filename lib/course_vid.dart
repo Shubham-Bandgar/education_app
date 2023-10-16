@@ -19,8 +19,9 @@ class _course_vidState extends State<course_vid> {
   bool _isPlayerReady = false;
 
   final List<String> _ids = [
-    'fis26HvvDII',
+    //'fis26HvvDII',
     'qK0QNA0sMGc',
+    'ntLJmHOJ0M'
     'A14BLDzNy2k',
 
     //'4AoFA19gbLo',

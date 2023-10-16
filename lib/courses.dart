@@ -1,9 +1,14 @@
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
+import 'package:education_app/Help.dart';
+import 'package:education_app/drawer.dart';
 import 'package:education_app/expl2.dart';
+import 'package:education_app/login.dart';
+import 'package:education_app/profile.dart';
 import 'package:education_app/python.dart';
+import 'package:education_app/setting.dart';
 import 'package:education_app/web.dart';
 import 'package:flutter/material.dart';
-
 import 'andr.dart';
 import 'data.dart';
 import 'expl1.dart';
@@ -52,42 +57,109 @@ class _coursesState extends State<courses> {
       backgroundColor: Colors.transparent,
       shadowColor: Colors.white,
       ),
-        drawer: Drawer(backgroundColor: Colors.yellow,width: 200,child: ListView(
+        drawer: Drawer(backgroundColor: Colors.redAccent,width: 300,child: ListView(
           padding: EdgeInsets.zero,
-          children:const <Widget> [
+          children: <Widget> [
             DrawerHeader(
+
+
                 decoration: BoxDecoration(
                   color: Colors.blue,
                 ),
-                child: Text("Menu",style: TextStyle(color: Colors.white,fontSize: 24,),),),
+                child:
+                CircleAvatar(
+                  backgroundImage: AssetImage("assets/images/avatar.png"),
+                )
+            ),
 
             ListTile(
               leading: Icon(Icons.login),
               title: Text("Log In"),
+              onTap: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>login()));
+              },
             ),
         ListTile(
           leading: Icon(Icons.home),
           title: Text("Home"),
+          onTap: (){
+            Navigator.push(context, MaterialPageRoute(builder: (context)=>courses()));
+          },
         ),
             ListTile(
               leading: Icon(Icons.account_circle),
               title: Text("Profile"),
+              onTap: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>profile()));
+              },
             ),
             ListTile(
               leading: Icon(Icons.settings),
               title: Text("Settings"),
+              onTap: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>setting()));
+              },
             ),
             ListTile(
               leading: Icon(Icons.help),
               title: Text("Help"),
+              onTap: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>Help()));
+              },
             ),
             ListTile(
               leading: Icon(Icons.logout),
               title: Text("Log Out"),
+              onTap: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>login()));
+              },
             ),
 
           ],
-        ),),
+        ),
+        ),
+        bottomNavigationBar: CurvedNavigationBar(
+         // key: _bottomNavigationKey,
+
+          index: 0,
+          height: 60.0,
+          items: <Widget>[
+
+
+            GestureDetector(
+                onTap: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>courses()));
+                },
+                child: Icon(Icons.home, size: 30)),
+
+            GestureDetector(
+                onTap: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>profile()));
+                },
+                child: Icon(Icons.perm_identity, size: 30)),
+            // Icon(Icons.add, size: 30),
+            Icon(Icons.search, size: 30),
+            GestureDetector(
+              onTap: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>drawer()));
+
+              },
+                child: Icon(Icons.list, size: 30)),
+          ],
+
+
+          color: Colors.white,
+          buttonBackgroundColor: Colors.white,
+          backgroundColor: Colors.blueAccent,
+          animationCurve: Curves.easeInOut,
+          animationDuration: Duration(milliseconds: 600),
+          onTap: (index) {
+            setState(() {
+              // _page = index;
+            });
+          },
+          letIndexChange: (index) => true,
+        ),
 
 //bottomNavigationBar: Cur,
 
@@ -98,12 +170,13 @@ class _coursesState extends State<courses> {
 
             Container(
               alignment: Alignment.topLeft,
-              child: Text("Recent Courses",style: TextStyle(
+              margin: EdgeInsets.only(left:10 ),
+              child: Text("Most Searched Courses",style: TextStyle(
                 fontSize: 35,color: Colors.white,fontStyle: FontStyle.italic,fontWeight: FontWeight.bold,
               ),),
             ),
             SizedBox(
-              height: 100,
+              height: 50,
             ),
             CarouselSlider(items:[
               Container(
@@ -139,7 +212,7 @@ class _coursesState extends State<courses> {
 
                                 Container(
                                     alignment: Alignment.topLeft,
-                                    margin: EdgeInsets.only(left: 20),
+                                    margin: EdgeInsets.only(left: 0),
                                     child: Text("Android ",style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold,color: Colors.white),)),
                                 Image.asset("assets/images/illustration-08.png",width: 280,height: 280,),
                               ],
@@ -148,7 +221,7 @@ class _coursesState extends State<courses> {
                           ),
 
                         ),
-                      
+
                     ],
                   ),
                 ),
@@ -167,7 +240,7 @@ class _coursesState extends State<courses> {
                           child: Text("10 Sections",style: TextStyle(fontSize: 15,fontWeight: FontWeight.bold,color:Colors.white),)),
                       Container(alignment: Alignment.topLeft,
                           margin: EdgeInsets.only(left: 20),
-                          child: Text(" Prototyping With Protopie",style: TextStyle( fontSize: 25,fontWeight: FontWeight.bold, color:Colors.white),))
+                          child: Text(" Programming With JAVA",style: TextStyle( fontSize: 25,fontWeight: FontWeight.bold, color:Colors.white),))
                     ],
                   ),
                   margin: EdgeInsets.all(6.0),
@@ -198,7 +271,7 @@ class _coursesState extends State<courses> {
                       ),
                       Container(alignment: Alignment.topLeft,
                           margin: EdgeInsets.only(left: 20),
-                          child: Text(" Build An API With SwiftUI",style: TextStyle( fontSize: 25,fontWeight: FontWeight.bold, color:Colors.white),),
+                          child: Text("WEB Development",style: TextStyle( fontSize: 25,fontWeight: FontWeight.bold, color:Colors.white),),
 
                       )
                     ],
@@ -206,7 +279,7 @@ class _coursesState extends State<courses> {
                   margin: EdgeInsets.all(6.0),
                   decoration: BoxDecoration(color: Colors.pinkAccent,
                     borderRadius: BorderRadius.circular(8.0),
-                    image: DecorationImage(image: AssetImage("assets/images/illustration-06.png"),
+                    image: const DecorationImage(image: AssetImage("assets/images/illustration-06.png"),
 
                       fit: BoxFit.cover,),
                   ),
@@ -302,17 +375,20 @@ class _coursesState extends State<courses> {
 
                                ],
                                  begin: Alignment.bottomRight, end: Alignment.topLeft,
-                               ),
+                                ),
                                borderRadius: BorderRadius.circular(15),
                              ),
 
                            ),
 
+
                          ),
+
                          SizedBox(
                            width: 30,
 
                          ),
+
 
                          GestureDetector(
                            onTap: (){
@@ -327,12 +403,14 @@ class _coursesState extends State<courses> {
                                  Colors.blue.shade800,
 
                                ],
+
                                  begin: Alignment.bottomRight, end: Alignment.topLeft,
                                ),
                                borderRadius: BorderRadius.circular(15),
                              ),
                            ),
                          ),
+
                          SizedBox(
                            width: 30,
                          ),
@@ -341,7 +419,9 @@ class _coursesState extends State<courses> {
                              Navigator.push(context, MaterialPageRoute(builder: (context)=>expl3()));
                            },
                            child: Container(
-                             child: Image(image: AssetImage("assets/images/illustration-04.png"),),
+                             child: Image(image: AssetImage("assets/images/illustration-04.png"),
+                             ),
+
                              width: 200,
                              height: 150,
                              decoration: BoxDecoration(
@@ -350,16 +430,19 @@ class _coursesState extends State<courses> {
                                  Colors.yellow.shade800,
 
                                ],
+
                                  begin: Alignment.bottomRight, end: Alignment.topLeft,
                                ),
                                borderRadius: BorderRadius.circular(10),
                              ),
                            ),
+
                          )
                        ],
                      ),
+
                    ),
-                 )
+                 ),//Text("Machime",style: TextStyle(fontSize : 20,color: Colors.red),)
                ],
              ),
            ),
